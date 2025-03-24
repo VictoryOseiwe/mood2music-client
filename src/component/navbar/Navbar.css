@@ -136,6 +136,5 @@
 .mobile-menu-button {
   background-color: var(--yellow);
   color: var(--white);
-  font-size: var(--medium);
   margin-bottom: 50px;
 }
