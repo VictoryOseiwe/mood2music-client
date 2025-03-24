@@ -1,0 +1,32 @@
+.notfound-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.notfound-img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.notfound-title {
+  margin: 0;
+  font-size: var(--xlarge);
+  color: var(--yellow);
+  font-weight: var(--extrabold);
+}
+
+.notfound-ptag {
+  margin: 0;
+  font-size: var(--xsmall);
+  color: var(--gray);
+}
+
+.notfound-btn:hover {
+  background-color: var(--yellow);
+  color: var(--white);
+  transition: background-color 1s ease;
+}

@@ -64,6 +64,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 15px;
+  font-size: var(--medium);
 }
 
 @media (max-width: 768px) {
