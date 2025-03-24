@@ -1,0 +1,39 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
+  max-width: 800px;
+  background: rgba(255, 253, 245, 0.5);
+  padding: 10px 15px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: var(--xlarge);
+  color: var(--yellow);
+  font-weight: var(--extrabold);
+  cursor: pointer;
+  margin: 0;
+}
+
+.navbar-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.navbar-button {
+  background-color: var(--white);
+  color: var(--yellow);
+}

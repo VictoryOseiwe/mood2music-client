@@ -1,9 +1,20 @@
+import Home from "./UI/home/Home";
+import About from "./UI/about/About";
+import Contact from "./UI/contact/Contact";
+import SignUp from "./UI/Auth/SignUP";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 export default function App() {
   return (
     <>
-      <div>
-        <h1>Home for our mood2music project frontend</h1>
-      </div>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </Router>
     </>
   );
 }
