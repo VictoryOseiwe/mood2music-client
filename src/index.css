@@ -42,14 +42,6 @@ body {
   background-color: var(--white);
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 50px;
-}
-
 a,
 li,
 ul {
@@ -62,11 +54,6 @@ a {
   color: var(--black);
 }
 
-a:hover,
-a:focus {
-  text-decoration: underline;
-}
-
 button {
   background-color: var(--white2);
   border: none;
@@ -77,4 +64,10 @@ button {
   align-items: center;
   justify-content: center;
   gap: 15px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px 25px;
+  }
 }
