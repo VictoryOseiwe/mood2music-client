@@ -28,7 +28,7 @@
 
 .logo:hover {
   background-color: var(--white);
-  transition: all 1s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .navbar-list {
@@ -49,7 +49,7 @@
 .nav-link:hover {
   background-color: var(--white);
   color: var(--yellow);
-  transition: all 1s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .navbar-button {

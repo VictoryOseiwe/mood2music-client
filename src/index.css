@@ -15,13 +15,13 @@
   --semibold: 500;
   --bold: 600;
   --extrabold: 700;
-  --black: 900;
+  --blk: 900;
 
   /* colors */
   --white: #fffae4;
   --white2: #fffdf5;
   --black: #222222;
-  --gray: #ccc;
+  --gray: #b9b9b9;
   --blue: #007bff;
   --green: #28a745;
   --yellow: #fcd634;
@@ -43,6 +43,12 @@ body {
   background-image: url("./assets/paper.png");
   background-color: rgba(255, 250, 228, 1);
   background-blend-mode: multiply;
+}
+
+section,
+div {
+  margin: 0;
+  padding: 0;
 }
 
 a,
@@ -102,11 +108,35 @@ button {
   transition: all 1s ease;
 }
 
+.typing-effect {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid black;
+  width: 0;
+  animation: typing 3s steps(20, end) forwards, blink 0.7s infinite;
+}
+
 @media (max-width: 768px) {
   body {
     padding: 10px 25px;
   }
   p {
     font-size: var(--small);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
   }
 }
