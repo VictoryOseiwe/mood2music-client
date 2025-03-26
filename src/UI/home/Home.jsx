@@ -6,6 +6,7 @@ import Button from "../../component/Button";
 import { useNavigate } from "react-router-dom";
 import Typed from "typed.js";
 import { useEffect, useRef } from "react";
+import StepProgress from "../../component/StepProgress/StepProgress";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ export default function Home() {
     <div className="home-container">
       <Navbar />
       {/* Navbar component is imported from component/navbar/Navbar.js */}
-      <div className="hero-section">
+      <section className="hero-section">
         <p className="hero-start-text">... Start your day with a smile</p>
         <img className="hero-img" src={MoodPic} alt="Smiling Mood" />{" "}
         {/* Displaying an image */}
@@ -56,7 +57,22 @@ export default function Home() {
             Sign In
           </Button>
         </div>
-      </div>
+      </section>
+      <section className="how-it-works-section">
+        <div className="hit-first-div">
+          <Button className={"hit-fd-btn"}>How it works</Button>
+          <div>
+            <h2>How mood2music Works</h2>
+            <p>
+              mood2music analyzes your emotional state, and provides you with
+              personalized music recommendations.
+            </p>
+          </div>
+        </div>
+        <div className="hit-second-div">
+          <StepProgress />
+        </div>
+      </section>
       <Footer />
     </div>
   ); // End of return statement
