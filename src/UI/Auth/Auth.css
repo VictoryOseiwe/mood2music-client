@@ -1,8 +1,65 @@
+.auth-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 50px;
+}
+
 .auth-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  width: 900px;
+  background-color: var(--white2);
+  /* border-radius: 20px; */
+  /* padding: 25px; */
+  height: 500px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-container > h3 {
+  color: var(--yellow);
+  font-size: var(--large);
+}
+
+.name-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.auth-btn {
+  width: 100%;
+  color: var(--white2);
+  background-color: var(--yellow);
+}
+
+.auth-btn:hover {
+  background-color: var(--white);
+  color: var(--yellow);
+  transition: all 0.5s ease;
+}
+
+.img-div {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--yellow);
+  /* border-top-right-radius: 20px;
+  border-end-end-radius: 20px; */
 }
 
 .smiling-img {
@@ -15,7 +72,17 @@
   font-size: var(--xlarge);
   font-weight: var(--blk);
   letter-spacing: -2px;
-  color: var(--yellow);
+  color: var(--white);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   line-height: 1.1;
+}
+
+.p-tag-sign-in {
+  color: var(--black);
+  font-size: var(--small);
+}
+
+.error-msg {
+  color: red;
+  font-size: var(--small);
 }
