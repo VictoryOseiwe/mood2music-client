@@ -1,4 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import Button from "../../component/Button";
+import { useAuth } from "../../utils/AuthContext";
+
 export default function Dashboard() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logout();
+    navigate("/");
+  };
+
   return (
     <>
       <div>
@@ -9,8 +21,7 @@ export default function Dashboard() {
           performance.
         </p>
         <p>Please log in to access your dashboard.</p>
-        <button>Log In</button>
-        <button>Sign Up</button>
+        <Button onClick={handleLogOut}>Sign Out</Button>
       </div>
     </>
   );
