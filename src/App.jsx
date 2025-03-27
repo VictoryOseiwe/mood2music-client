@@ -4,6 +4,7 @@ import Contact from "./UI/contact/Contact";
 import SignUp from "./UI/Auth/SignUP";
 import SignIn from "./UI/Auth/SignIn";
 import NotFoundPage from "./UI/notfoundpage/Notfound";
+import Dashboard from "./UI/dashboard/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -16,6 +17,8 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
+          {/* authenticated route */}
+          <Route path="/dashboard" element={<Dashboard />} />{" "}
           <Route path="*" element={<NotFoundPage />} /> {/* catch-all route */}
         </Routes>
       </Router>
