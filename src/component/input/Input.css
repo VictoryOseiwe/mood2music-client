@@ -20,3 +20,10 @@
   background-color: var(--white);
   /* width: 300px; */
 }
+
+@media (max-width: 768px) {
+  .input-field {
+    /* width: 80%; */
+    max-width: 90%;
+  }
+}

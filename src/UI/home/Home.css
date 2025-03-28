@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin: 50px 0;
+  padding: 0 25px;
 }
 
 .hero-start-text {
@@ -73,14 +74,18 @@
 .how-it-works-section {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   margin-bottom: 50px;
+  padding: 0 150px;
 }
 
 .hit-first-div > div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+}
+
+.hit-first-div {
+  margin-bottom: 20px;
 }
 
 .hit-fd-btn {
@@ -92,13 +97,13 @@
   transition: all 0.5s ease-in-out;
 }
 
-.hit-first-div > div > h2 {
-  font-size: var(--xxlarge);
+.hit-head-text {
+  font-size: var(--xlarge);
   font-weight: var(--blk);
   color: var(--yellow);
 }
 
-.hit-first-div > div > p {
+.hit-p-text {
   font-size: var(--medium);
   color: var(--black);
 }
@@ -110,10 +115,49 @@
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    margin-bottom: 25px;
+  }
+
   .hero-text {
     font-size: var(--xlarge);
   }
   .hero-description {
     font-size: var(--xxsmall);
+  }
+
+  /* how it works mobile styling section  */
+  .how-it-works-section {
+    padding: 0 25px;
+    margin-bottom: 25px;
+  }
+
+  .hit-first-div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .hit-first-div {
+    margin-bottom: 10px;
+  }
+
+  .hit-head-text {
+    font-size: var(--medium);
+    font-weight: var(--extrabold);
+  }
+
+  .hit-p-text {
+    font-size: 10px;
+    font-weight: var(--semibold);
+  }
+
+  .hit-second-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hit-fd-btn {
+    padding: 5px 10px;
   }
 }

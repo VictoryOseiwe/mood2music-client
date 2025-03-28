@@ -119,7 +119,7 @@ button {
 
 @media (max-width: 768px) {
   body {
-    padding: 10px 25px;
+    padding: 10px;
   }
   p {
     font-size: var(--small);

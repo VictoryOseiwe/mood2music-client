@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../component/Button";
 import { useAuth } from "../../utils/AuthContext";
+import "./Dashboard.css";
 
 export default function Dashboard() {
   const { logout } = useAuth();
@@ -20,7 +21,7 @@ export default function Dashboard() {
           Here you can manage your tasks, view your progress, and track your
           performance.
         </p>
-        <p>Please log in to access your dashboard.</p>
+        <p>To log out, click the button below.</p>
         <Button onClick={handleLogOut}>Sign Out</Button>
       </div>
     </>
