@@ -13,7 +13,6 @@ export default function Navbar() {
   const signUP = () => {
     //Handle navigation to sign page here
     navigate("/signup");
-    alert("Sign up button clicked");
   };
 
   const showSideBar = () => {

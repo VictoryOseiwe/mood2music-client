@@ -4,7 +4,7 @@ import { useAuth } from "./AuthContext";
 export default function ProtectedRoute() {
   const { user } = useAuth();
 
-  if (user === undefined || user === null) {
+  if (user === undefined) {
     return <div>Loading...</div>;
   }
 
