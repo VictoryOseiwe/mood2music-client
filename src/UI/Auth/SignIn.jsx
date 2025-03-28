@@ -5,9 +5,10 @@ import Input from "../../component/input/Input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast"; will use this but it's not time yet!!!
+import { useAuth } from "../../utils/AuthContext";
 
-export default function SignUp() {
+export default function SignIn() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,6 +17,7 @@ export default function SignUp() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   // ✅ Function to handle input changes dynamically
   const handleChange = (e) => {
@@ -40,6 +42,7 @@ export default function SignUp() {
         password: "",
       });
 
+      login(response.data.user);
       navigate("/dashboard");
     } catch (error) {
       console.log(error);
@@ -98,39 +101,7 @@ export default function SignUp() {
       <div className="auth-container">
         <div className="form-div">
           <form onSubmit={handleSubmit} className="form-container">
-            <h3>Create an Account</h3>
-            {/* <div className="name-container">
-              <Input
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                Label={"First Name"}
-                type="text"
-                htmlFor={"firstName"}
-                disabled={isLoading}
-                required
-              />
-              <Input
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                Label={"Last Name"}
-                type="text"
-                htmlFor={"lastName"}
-                disabled={isLoading}
-                required
-              />
-            </div>
-            <Input
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              Label={"Username"}
-              type="text"
-              htmlFor={"username"}
-              disabled={isLoading}
-              required
-            /> */}
+            <h3>Log In To See Your Dashboard</h3>
             <Input
               name="email"
               value={formData.email}

@@ -5,7 +5,7 @@ import Input from "../../component/input/Input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast"; will use this but it's not time yet!!!
 import { useAuth } from "../../utils/AuthContext";
 
 export default function SignUp() {
