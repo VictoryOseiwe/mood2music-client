@@ -18,3 +18,10 @@
 .active-text {
   color: var(--yellow);
 }
+
+@media (max-width: 768px) {
+  .active-font-head {
+    font-size: var(--small);
+    font-weight: var(--bold);
+  }
+}

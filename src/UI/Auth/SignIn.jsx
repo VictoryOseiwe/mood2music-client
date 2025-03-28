@@ -101,7 +101,7 @@ export default function SignIn() {
       <div className="auth-container">
         <div className="form-div">
           <form onSubmit={handleSubmit} className="form-container">
-            <h3>Log In To See Your Dashboard</h3>
+            <h3>Sign In</h3>
             <Input
               name="email"
               value={formData.email}

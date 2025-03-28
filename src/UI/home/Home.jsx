@@ -38,14 +38,10 @@ export default function Home() {
   return (
     <div className="home-container">
       <Navbar />
-      {/* Navbar component is imported from component/navbar/Navbar.js */}
       <section className="hero-section">
         <p className="hero-start-text">... Start your day with a smile</p>
         <img className="hero-img" src={MoodPic} alt="Smiling Mood" />{" "}
-        {/* Displaying an image */}
-        <h1 ref={element} className="hero-text">
-          {/* mood2music */}
-        </h1>
+        <h1 ref={element} className="hero-text"></h1>
         <p className="hero-description">
           ... discover music tailored with your mood today
         </p>
@@ -61,9 +57,9 @@ export default function Home() {
       <section className="how-it-works-section">
         <div className="hit-first-div">
           <Button className={"hit-fd-btn"}>How it works</Button>
-          <div>
-            <h2>How mood2music Works</h2>
-            <p>
+          <div className="hit-text-container">
+            <h2 className="hit-head-text">How mood2music Works</h2>
+            <p className="hit-p-text">
               mood2music analyzes your emotional state, and provides you with
               personalized music recommendations.
             </p>
