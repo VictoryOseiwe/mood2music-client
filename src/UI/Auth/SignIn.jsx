@@ -5,7 +5,8 @@ import Input from "../../component/input/Input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import toast from "react-hot-toast"; will use this but it's not time yet!!!
+// will use this but it's not time yet!!!
+import toast from "react-hot-toast";
 import { useAuth } from "../../utils/AuthContext";
 import Navbar from "../../component/navbar/Navbar";
 import Footer from "../../component/footer/Footer";
@@ -43,6 +44,8 @@ export default function SignIn() {
         email: "",
         password: "",
       });
+
+      toast.success(response.data.message || "Login Successful!");
 
       login(response.data.user);
       navigate("/dashboard");
