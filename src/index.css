@@ -112,9 +112,14 @@ button {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 2px solid black;
+  border-right: 1px solid black;
   width: 0;
   animation: typing 3s steps(20, end) forwards, blink 0.7s infinite;
+}
+
+form {
+  margin: 0;
+  padding: 0;
 }
 
 @media (max-width: 768px) {
