@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import toast from "react-hot-toast"; will use this but it's not time yet!!!
 import { useAuth } from "../../utils/AuthContext";
+import Navbar from "../../component/navbar/Navbar";
+import Footer from "../../component/footer/Footer";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
@@ -98,6 +100,7 @@ export default function SignIn() {
 
   return (
     <section className="auth-section">
+      <Navbar />
       <div className="auth-container">
         <div className="form-div">
           <form onSubmit={handleSubmit} className="form-container">
@@ -139,6 +142,7 @@ export default function SignIn() {
           {error && <p className="error-msg">{error}</p>}
         </div>
       </div>
+      <Footer />
     </section>
   );
 }

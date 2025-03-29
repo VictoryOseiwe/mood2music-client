@@ -31,7 +31,7 @@ export default function Footer() {
             </NavLink>
           </FooterMenuItem>
           <FooterMenuItem className="footer-menu-items">
-            <h2>Support and Contact</h2>
+            <h2>Support</h2>
             <NavLink className={"nav-link"} to={"/contact"}>
               <ListItem>Email Support</ListItem>
             </NavLink>

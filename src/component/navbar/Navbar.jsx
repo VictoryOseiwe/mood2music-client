@@ -51,7 +51,7 @@ export default function Navbar() {
         </div>
         <div className="mobile-menu-content">
           <div className="mobile-menu-link">
-            <NavLink className={"link"} to={"/Home"}>
+            <NavLink className={"link"} to={"/"}>
               <ListItem>Home</ListItem>
             </NavLink>
             <NavLink className={"link"} to={"/about"}>
