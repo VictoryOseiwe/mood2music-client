@@ -5,6 +5,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { RxAvatar } from "react-icons/rx";
 
 export const UpRightArrow = FiArrowUpRight;
 export const Menu = RiMenuFill;
@@ -13,3 +14,4 @@ export const X = FaXTwitter;
 export const LinkedIn = FaLinkedin;
 export const Youtube = FaYoutube;
 export const GitHub = FaGithub;
+export const Avatar = RxAvatar;
