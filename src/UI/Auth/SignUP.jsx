@@ -5,7 +5,7 @@ import Input from "../../component/input/Input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import toast from "react-hot-toast"; will use this but it's not time yet!!!
+import toast from "react-hot-toast";
 import { useAuth } from "../../utils/AuthContext";
 import Navbar from "../../component/navbar/Navbar";
 import Footer from "../../component/footer/Footer";
@@ -51,59 +51,19 @@ export default function SignUp() {
       });
 
       login(response.data.user);
+      toast.success(response.data.message || "Registration successful.");
 
       navigate("/dashboard");
     } catch (error) {
       console.log(error);
+      setError(
+        error.response.data.message + ", Refresh page to try again" ||
+          "Registration failed. Refresh page to try again"
+      );
+    } finally {
+      setIsLoading(false);
     }
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-  //   setError("");
-
-  //   try {
-  //     const response = await axios.post(
-  //       "http://localhost:3000/user/register",
-  //       formData,
-  //       { withCredentials: true }
-  //     );
-
-  //     console.log("Registration Response:", response);
-
-  //     if (response.data?.success) {
-  //       toast.success(response.data.message || "Registration successful.");
-  //       localStorage.setItem("user", JSON.stringify(response.data.user));
-  //       // ✅ Clear the form after successful registration
-  //       setFormData({
-  //         firstName: "",
-  //         lastName: "",
-  //         username: "",
-  //         email: "",
-  //         password: "",
-  //       });
-
-  //       navigate("/dashboard");
-  //       navigate("/dashboard");
-  //     } else {
-  //       const errorMessage = response.data.message || "Registration failed.";
-  //       setError(errorMessage);
-  //       toast.error(errorMessage);
-  //     }
-  //   } catch (error) {
-  //     console.error("Registration error", error);
-  //     const errorMessage =
-  //       axios.isAxiosError(error) && error.response?.data?.message
-  //         ? error.response.data.message
-  //         : "Error occurred during registration";
-
-  //     setError(errorMessage);
-  //     toast.error(errorMessage);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
 
   return (
     <section className="auth-section">

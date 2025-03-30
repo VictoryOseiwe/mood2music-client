@@ -8,11 +8,13 @@ import Dashboard from "./UI/dashboard/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./utils/AuthContext";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   return (
     <>
       <AuthProvider>
+        <Toaster />
         <Router>
           <Routes>
             <Route exact path="/" element={<Home />} />
