@@ -1,7 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
 const AuthContext = createContext();
-
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -19,18 +17,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      try {
-        const parsedUser = JSON.parse(storedUser);
-        // Optional: Validate the user data (e.g., check if it contains expected fields)
-        if (parsedUser && parsedUser.token) {
-          setUser(parsedUser);
-        } else {
-          setUser(null);
-        }
-      } catch (error) {
-        console.error("Error parsing user data from localStorage", error);
-        setUser(null);
-      }
+      setUser(JSON.parse(storedUser));
     } else {
       setUser(null);
     }
@@ -38,7 +25,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>; // Loading state while waiting for user data
   }
 
   return (
