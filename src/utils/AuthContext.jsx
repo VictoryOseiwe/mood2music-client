@@ -41,7 +41,6 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-import Button from "../component/Button";
 
 const AuthContext = createContext();
 
@@ -56,7 +55,6 @@ export const AuthProvider = ({ children }) => {
         withCredentials: true, // Send cookies to backend
       });
       setUser(res.data);
-      <Button>Logout</Button>;
     } catch (error) {
       setUser(null);
     } finally {
