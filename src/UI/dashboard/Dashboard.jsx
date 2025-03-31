@@ -60,7 +60,6 @@ export default function Dashboard() {
       <div className="dashboard-container">
         <div className="top-container">
           <div>
-            {/* <img src={<Avatar size={35} />} alt="user profile image" /> */}
             <Avatar size={50} />
             <Button onClick={handleLogOut}>Sign Out</Button>
           </div>
