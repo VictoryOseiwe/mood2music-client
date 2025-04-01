@@ -1,45 +1,4 @@
-// import { createContext, useContext, useEffect, useState } from "react";
-// const AuthContext = createContext();
-// export const AuthProvider = ({ children }) => {
-//   const [user, setUser] = useState(null);
-//   const [loading, setLoading] = useState(true);
-
-//   const login = (userData) => {
-//     setUser(userData);
-//     localStorage.setItem("user", JSON.stringify(userData));
-//   };
-
-//   const logout = () => {
-//     setUser(null);
-//     localStorage.removeItem("user");
-//   };
-
-//   useEffect(() => {
-//     const storedUser = localStorage.getItem("user");
-//     if (storedUser) {
-//       setUser(JSON.parse(storedUser));
-//     } else {
-//       setUser(null);
-//     }
-//     setLoading(false);
-//   }, []);
-
-//   if (loading) {
-//     return <div>Loading...</div>; // Loading state while waiting for user data
-//   }
-
-//   return (
-//     <AuthContext.Provider value={{ user, login, logout }}>
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
-
-// export const useAuth = () => {
-//   return useContext(AuthContext);
-// };
-
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 const AuthContext = createContext();
@@ -48,61 +7,40 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check if user is authenticated
-  const fetchUser = async () => {
-    try {
-      const res = await axios.get("http://localhost:3000/user/me", {
-        withCredentials: true, // Send cookies to backend
-      });
-      setUser(res.data);
-    } catch (error) {
-      setUser(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  // Check if user is authenticated when app loads
   useEffect(() => {
-    fetchUser();
+    const verifyUser = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/user/me", {
+          withCredentials: true,
+        });
+        setUser(res.data.user);
+      } catch (error) {
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    verifyUser();
   }, []);
 
-  const login = async (userData) => {
-    try {
-      const res = await axios.post(
-        "http://localhost:3000/user/login",
-        userData,
-        {
-          withCredentials: true, // Allow cookies to be stored
-        }
-      );
-      setUser(res.data);
-    } catch (error) {
-      console.error("Login failed:", error);
-    }
-  };
-
+  const login = (userData) => setUser(userData);
   const logout = async () => {
-    try {
-      await axios.post(
-        "http://localhost:3000/user/logout",
-        {},
-        { withCredentials: true }
-      );
-      setUser(null);
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
-  };
+    axios
+      .get("http://localhost:3000/user/me", {
+        withCredentials: true, // Ensure cookies are sent
+      })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err.response.data));
 
-  if (loading) return <div>Loading...</div>;
+    setUser(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);
