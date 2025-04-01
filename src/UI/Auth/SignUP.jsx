@@ -14,7 +14,7 @@ export default function SignUp() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    username: "",
+    userName: "",
     email: "",
     password: "",
   });
@@ -45,7 +45,7 @@ export default function SignUp() {
       setFormData({
         firstName: "",
         lastName: "",
-        username: "",
+        userName: "",
         email: "",
         password: "",
       });
@@ -95,12 +95,12 @@ export default function SignUp() {
               />
             </div>
             <Input
-              name="username"
-              value={formData.username}
+              name="userName"
+              value={formData.userName}
               onChange={handleChange}
               Label={"Username"}
               type="text"
-              htmlFor={"username"}
+              htmlFor={"userName"}
               disabled={isLoading}
               required
             />
