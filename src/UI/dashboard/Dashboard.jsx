@@ -23,14 +23,6 @@ export default function Dashboard() {
     e.preventDefault();
 
     try {
-      const token = localStorage.getItem("user");
-      console.log(token);
-
-      if (!token) {
-        toast.error("Not authorized. Please sign in");
-        navigate("/signin");
-        return;
-      }
       if (!mood) {
         toast.error("Please enter your mood");
         return;
@@ -40,18 +32,30 @@ export default function Dashboard() {
         "http://localhost:3000/mood/addmood",
         { mood },
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          withCredentials: true,
         }
       );
 
       toast.success(response.data?.message);
-      setPlaylist(response.data.playlist);
       setMood("");
     } catch (error) {
       console.error(error);
       toast.error(error?.response?.data?.error || "Cannot post mood");
+    }
+  };
+
+  const handlePlaylist = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:3000/playlist/recommendedplaylist",
+        { withCredentials: true }
+      );
+
+      toast.success("Playlist generated successfully");
+      setPlaylist(response.data.playlist);
+    } catch (error) {
+      console.error("Error generating playlist");
+      toast.error(error?.response?.data?.error || "Cannot generate playlist");
     }
   };
 
@@ -82,7 +86,17 @@ export default function Dashboard() {
             />
             <Button type="submit">Submit Mood</Button>
           </form>
-          <div>{playlist}</div>
+          <h2>Your Mood Playlist</h2>
+          <Button onClick={handlePlaylist}>Get PlayList</Button>
+          {playlist && (
+            <div>
+              <h4>{playlist.name}</h4>
+              <img src={playlist.image} alt="playlist image" />
+              <Button>
+                <a href={playlist.url}>Play Now</a>
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </>

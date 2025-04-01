@@ -1,12 +1,12 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../utils/AuthContext";
 
-export default function ProtectedRoute() {
-  const { user } = useAuth();
+const ProtectedRoute = () => {
+  const { user, loading } = useAuth();
 
-  if (user === undefined) {
-    return <div>Loading...</div>;
-  }
+  if (loading) return <p>Loading...</p>; // Prevents flickering
 
   return user ? <Outlet /> : <Navigate to="/signin" />;
-}
+};
+
+export default ProtectedRoute;
