@@ -1,6 +1,6 @@
 import "./Input.css";
 
-export default function Input({ htmlFor, Label, ...props }) {
+export default function Input({ className, htmlFor, Label, ...props }) {
   return (
     <div className="input-container">
       <label htmlFor={htmlFor} className="label-for-input">
@@ -9,7 +9,7 @@ export default function Input({ htmlFor, Label, ...props }) {
       <input
         id={htmlFor}
         autoComplete="true"
-        className="input-field"
+        className={className}
         {...props}
       />
     </div>

@@ -7,11 +7,11 @@
 
 .label-for-input {
   color: var(--black);
-  font-size: var(--xxsmall);
+  font-size: var(--xsmall);
   font-weight: var(--bold);
 }
 
-.input-field {
+input {
   padding: 10px;
   border: none;
   border-radius: 10px;
