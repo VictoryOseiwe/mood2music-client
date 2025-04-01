@@ -4,13 +4,14 @@ import { useAuth } from "../../utils/AuthContext";
 import "./Dashboard.css";
 import { Avatar } from "../../component/Icons";
 import Input from "../../component/input/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 
 export default function Dashboard() {
   const [mood, setMood] = useState("");
   const [playlist, setPlaylist] = useState();
+  const [moods, setMoods] = useState();
   const { logout } = useAuth();
   const navigate = useNavigate();
 
@@ -59,6 +60,22 @@ export default function Dashboard() {
     }
   };
 
+  useEffect(() => {
+    const userMoods = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/mood/getmood", {
+          withCredentials: true,
+        });
+        setMoods(response.data);
+      } catch (error) {
+        console.error(error);
+        toast.error(error?.response?.data?.error || "Cannot fetch moods");
+      }
+    };
+
+    userMoods();
+  }, []);
+
   return (
     <>
       <div className="dashboard-container">
@@ -97,6 +114,11 @@ export default function Dashboard() {
               </Button>
             </div>
           )}
+        </div>
+        <div>
+          {/* Add your recent moods section here */}
+          <h2>Recent Moods</h2>
+          {/* Display recent moods here */}
         </div>
       </div>
     </>
