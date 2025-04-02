@@ -106,6 +106,9 @@ export default function Dashboard() {
             <div className="greetings-container">
               <h1 className="username">Hello, {userName}</h1>
               <p className="greeting">{greeting}</p>
+              <div>
+                <Button onClick={handlePlaylist}>Get a new playlist</Button>
+              </div>
             </div>
             {/* </div> */}
           </div>
