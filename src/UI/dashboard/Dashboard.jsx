@@ -11,7 +11,6 @@ import axios from "axios";
 export default function Dashboard() {
   const [mood, setMood] = useState("");
   const [playlist, setPlaylist] = useState();
-  const [moods, setMoods] = useState();
   const { logout } = useAuth();
   const navigate = useNavigate();
 
@@ -60,60 +59,53 @@ export default function Dashboard() {
     }
   };
 
-  useEffect(() => {
-    const userMoods = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/mood/getmood", {
-          withCredentials: true,
-        });
-        setMoods(response.data);
-      } catch (error) {
-        console.error(error);
-        toast.error(error?.response?.data?.error || "Cannot fetch moods");
-      }
-    };
-
-    userMoods();
-  }, []);
-
   return (
     <>
-      <div className="dashboard-container">
-        <div className="top-container">
-          <div>
-            <Avatar size={50} />
-            <Button onClick={handleLogOut}>Sign Out</Button>
-          </div>
-          <div>
-            <h1>Welcome, User!</h1>
-            <p>This is your dashboard.</p>
-          </div>
-        </div>
-        <div>
-          {/* Add your dashboard content here */}
-          <form onSubmit={handleSubmit}>
-            <Input
-              name="mood"
-              value={mood}
-              Label={"How are you feeling?"}
-              htmlFor={"mood"}
-              type="text"
-              placeholder="Enter mood..."
-              onChange={(e) => setMood(e.target.value)}
-            />
-            <Button type="submit">Submit Mood</Button>
-          </form>
-          <h2>Your Mood Playlist</h2>
-          <Button onClick={handlePlaylist}>Get PlayList</Button>
-          {playlist && (
+      <div className="dashboard-section">
+        <div className="dashboard-container">
+          <div className="top-container">
             <div>
-              <h4>{playlist.name}</h4>
-              <img src={playlist.image} alt="playlist image" />
-              <Button>
-                <a href={playlist.url}>Play Now</a>
-              </Button>
+              <Avatar size={50} />
+              <Button onClick={handleLogOut}>Sign Out</Button>
             </div>
-          )}
+            {/* <div> */}
+            <div className="greetings-container">
+              <h1 className="username">Hello, {userName}</h1>
+              <p className="greeting">{greeting}</p>
+            </div>
+            {/* </div> */}
+          </div>
+          <div>
+            {/* Add your dashboard content here */}
+            <form className="mood-submission" onSubmit={handleSubmit}>
+              <Input
+                name="mood"
+                className={"mood-input"}
+                value={mood}
+                Label={"How are you feeling?"}
+                htmlFor={"mood"}
+                type="text"
+                placeholder="Enter mood..."
+                onChange={(e) => setMood(e.target.value)}
+              />
+              <Button className={"submit-mood-btn"} type="submit">
+                Submit Mood
+              </Button>
+            </form>
+            <h2>Your Mood Playlist</h2>
+            <Button className={"get-playlist-btn"} onClick={handlePlaylist}>
+              Get PlayList
+            </Button>
+            {playlist && (
+              <div>
+                <h4>{playlist.name}</h4>
+                <img src={playlist.image} alt="playlist image" />
+                <a href={playlist.url}>
+                  <Button className={"playmusic-btn"}>Play Now</Button>
+                </a>
+              </div>
+            )}
+          </div>
         </div>
         <div>
           {/* Add your recent moods section here */}
