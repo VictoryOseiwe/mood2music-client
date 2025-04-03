@@ -1,10 +1,11 @@
-export default function musicCard() {
+import Button from "../Button";
+
+export default function musicCard({ playButton, playlistImg, playButton }) {
   return (
     <div>
-      <h1>Music Card</h1>
-      <p>
-        This card will be used to display the playlist gotten from the backend
-      </p>
+      <h4>{playlistName}</h4>
+      <img src={playlistImg} alt="Playlist Image" />
+      <Button>{playButton}</Button>
     </div>
   );
 }
