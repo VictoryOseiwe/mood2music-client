@@ -6,6 +6,7 @@ import { Avatar } from "../../component/Icons";
 import Input from "../../component/input/Input";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import musicCard from "../../component/musicCard/MusicCard";
 import axios from "axios";
 
 export default function Dashboard() {
@@ -114,6 +115,7 @@ export default function Dashboard() {
           </div>
           <div>
             {/* Add your dashboard content here */}
+            <musicCard />
             <form className="mood-submission" onSubmit={handleSubmit}>
               <Input
                 name="mood"
