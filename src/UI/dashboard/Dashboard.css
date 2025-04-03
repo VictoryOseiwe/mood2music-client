@@ -70,7 +70,6 @@
   color: var(--white);
   transition: all 0.5s ease-in-out;
 }
-
 .playmusic-btn {
   background-color: var(--white);
   color: var(--red);
