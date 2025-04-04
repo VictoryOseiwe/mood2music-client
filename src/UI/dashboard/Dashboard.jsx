@@ -139,6 +139,7 @@ export default function Dashboard() {
                 playlistName={playlist.name}
                 playlistImg={playlist.image}
                 playButton={"Play Now"}
+                playlistUrl={playlist.url}
               />
             )}
           </div>
