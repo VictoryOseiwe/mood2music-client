@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import MusicCard from "../../component/musicCard/MusicCard";
 import axios from "axios";
+import Moods from "../../component/Moods/Moods";
 
 export default function Dashboard() {
   const [mood, setMood] = useState("");
@@ -130,6 +131,7 @@ export default function Dashboard() {
                 Submit Mood
               </Button>
             </form>
+            <Moods />
             <h2>Your Mood Playlist</h2>
             <Button className={"get-playlist-btn"} onClick={handlePlaylist}>
               Get PlayList
