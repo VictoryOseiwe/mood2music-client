@@ -6,7 +6,7 @@ import { Avatar } from "../../component/Icons";
 import Input from "../../component/input/Input";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import musicCard from "../../component/musicCard/MusicCard";
+import MusicCard from "../../component/musicCard/MusicCard";
 import axios from "axios";
 
 export default function Dashboard() {
@@ -115,7 +115,6 @@ export default function Dashboard() {
           </div>
           <div>
             {/* Add your dashboard content here */}
-            <musicCard />
             <form className="mood-submission" onSubmit={handleSubmit}>
               <Input
                 name="mood"
@@ -136,13 +135,11 @@ export default function Dashboard() {
               Get PlayList
             </Button>
             {playlist && (
-              <div>
-                <h4>{playlist.name}</h4>
-                <img src={playlist.image} alt="playlist image" />
-                <a href={playlist.url}>
-                  <Button className={"playmusic-btn"}>Play Now</Button>
-                </a>
-              </div>
+              <MusicCard
+                playlistName={playlist.name}
+                playlistImg={playlist.image}
+                playButton={"Play Now"}
+              />
             )}
           </div>
         </div>
