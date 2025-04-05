@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import "./Playlists.css";
 
 export default function PlayLists({}) {
   const [playlists, setPlaylists] = useState();
