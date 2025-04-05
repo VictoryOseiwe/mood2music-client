@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import MusicCard from "../../component/musicCard/MusicCard";
 import axios from "axios";
 import Moods from "../../component/Moods/Moods";
+import PlayLists from "../../component/Playlists/Playlist";
 
 export default function Dashboard() {
   const [mood, setMood] = useState("");
@@ -144,6 +145,7 @@ export default function Dashboard() {
                 playlistUrl={playlist.url}
               />
             )}
+            <PlayLists />
           </div>
         </div>
       </div>
