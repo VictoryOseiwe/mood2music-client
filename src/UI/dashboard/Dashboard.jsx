@@ -6,10 +6,9 @@ import { Avatar } from "../../component/Icons";
 import Input from "../../component/input/Input";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import MusicCard from "../../component/musicCard/MusicCard";
+// import Card from "../../component/card/PlaylistCard";
 import axios from "axios";
 import Moods from "../../component/Moods/Moods";
-import PlayLists from "../../component/Playlists/Playlist";
 
 export default function Dashboard() {
   const [mood, setMood] = useState("");
@@ -137,15 +136,6 @@ export default function Dashboard() {
             <Button className={"get-playlist-btn"} onClick={handlePlaylist}>
               Get PlayList
             </Button>
-            {playlist && (
-              <MusicCard
-                playlistName={playlist.name}
-                playlistImg={playlist.image}
-                playButton={"Play Now"}
-                playlistUrl={playlist.url}
-              />
-            )}
-            <PlayLists />
           </div>
         </div>
       </div>
