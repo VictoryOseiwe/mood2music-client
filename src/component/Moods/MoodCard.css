@@ -1,0 +1,55 @@
+.mood-container {
+  display: flex;
+  flex-direction: column;
+}
+.scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
+  height: 80px;
+  margin-top: 20px;
+}
+
+.scroll-row {
+  display: inline-flex;
+  gap: 12px;
+  animation: scroll 40s linear infinite;
+}
+
+.mood-box {
+  min-width: 150px;
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.mood-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.mood-inpu-btn {
+  font-size: var(--xsmall);
+  color: red;
+}
+
+/* 
+.mood-input input {
+  flex: 1;
+  padding: 10px;
+} */
+
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
