@@ -3,16 +3,12 @@ import Button from "../../component/Button";
 import { useAuth } from "../../utils/AuthContext";
 import "./Dashboard.css";
 import { Avatar } from "../../component/Icons";
-import Input from "../../component/input/Input";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-// import Card from "../../component/card/PlaylistCard";
 import axios from "axios";
-import Moods from "../../component/Moods/Moods";
+import MoodCard from "../../component/Moods/MoodCard";
 
 export default function Dashboard() {
-  const [mood, setMood] = useState("");
-  const [playlist, setPlaylist] = useState();
   const [userName, setUserName] = useState("");
   const [greeting, setGreeting] = useState("");
   const { logout } = useAuth();
@@ -21,31 +17,6 @@ export default function Dashboard() {
   const handleLogOut = () => {
     logout();
     navigate("/");
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      if (!mood) {
-        toast.error("Please enter your mood");
-        return;
-      }
-
-      const response = await axios.post(
-        "http://localhost:3000/mood/addmood",
-        { mood },
-        {
-          withCredentials: true,
-        }
-      );
-
-      toast.success(response.data?.message);
-      setMood("");
-    } catch (error) {
-      console.error(error);
-      toast.error(error?.response?.data?.error || "Cannot post mood");
-    }
   };
 
   const handlePlaylist = async () => {
@@ -115,28 +86,12 @@ export default function Dashboard() {
             {/* </div> */}
           </div>
           <div>
-            {/* Add your dashboard content here */}
-            <form className="mood-submission" onSubmit={handleSubmit}>
-              <Input
-                name="mood"
-                className={"mood-input"}
-                value={mood}
-                Label={"How are you feeling?"}
-                htmlFor={"mood"}
-                type="text"
-                placeholder="Enter mood..."
-                onChange={(e) => setMood(e.target.value)}
-              />
-              <Button className={"submit-mood-btn"} type="submit">
-                Submit Mood
-              </Button>
-            </form>
-            <Moods />
             <h2>Your Mood Playlist</h2>
             <Button className={"get-playlist-btn"} onClick={handlePlaylist}>
               Get PlayList
             </Button>
           </div>
+          <MoodCard />
         </div>
       </div>
     </>
