@@ -57,9 +57,18 @@ export default function MoodCard() {
     fetchMoods();
   }, []);
 
+  // const bgColors = ["red", "blue", "green", "gold"];
+  const bgColors = [
+    "var(--purple)",
+    "var(--yellow)",
+    "var(--green)",
+    "var(--blue)",
+    "var(--red)",
+  ];
+
   // Displaying the last 10 moods in the top-right corner
   return (
-    <div>
+    <div className="mood-container">
       <h4>All Moods</h4>
 
       <div className="mood-input">
@@ -70,13 +79,19 @@ export default function MoodCard() {
           onChange={handleMoodChange}
           name="mood"
         />
-        <Button onClick={handleAddedMood}>Add Mood</Button>
+        <Button className={"mood-inpu-btn"} onClick={handleAddedMood}>
+          Add Mood
+        </Button>
       </div>
 
       <div className="scroll-container">
         <div className="scroll-row">
           {moods?.map((mood, index) => (
-            <div className="mood-box" key={index}>
+            <div
+              className="mood-box"
+              key={index}
+              style={{ backgroundColor: bgColors[index % bgColors.length] }}
+            >
               {mood.mood}
             </div>
           ))}
