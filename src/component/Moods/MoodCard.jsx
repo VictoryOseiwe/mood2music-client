@@ -57,7 +57,6 @@ export default function MoodCard() {
     fetchMoods();
   }, []);
 
-  // const bgColors = ["red", "blue", "green", "gold"];
   const bgColors = [
     "var(--purple)",
     "var(--yellow)",
@@ -71,15 +70,16 @@ export default function MoodCard() {
     <div className="mood-container">
       <h4>All Moods</h4>
 
-      <div className="mood-input">
+      <div className="mood-input-container">
         <Input
           type="text"
           value={mood}
           placeholder="How are you feeling today!!!"
           onChange={handleMoodChange}
           name="mood"
+          className={"mood-input"}
         />
-        <Button className={"mood-inpu-btn"} onClick={handleAddedMood}>
+        <Button className={"mood-input-btn"} onClick={handleAddedMood}>
           Add Mood
         </Button>
       </div>
