@@ -52,24 +52,6 @@
   cursor: pointer;
 }
 
-/* 
-
-
-.mood-input {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.mood-inpu-btn {
-  font-size: var(--xsmall);
-  color: red;
-}
-.mood-input input {
-  flex: 1;
-  padding: 10px;
-} */
-
 /* Style for the mood box animation */
 @keyframes scroll {
   from {
