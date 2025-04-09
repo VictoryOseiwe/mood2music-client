@@ -37,7 +37,7 @@
 .scroll-row {
   display: inline-flex;
   gap: 12px;
-  animation: scroll 5s linear infinite;
+  animation: scroll 50s linear infinite;
 }
 
 .mood-box {

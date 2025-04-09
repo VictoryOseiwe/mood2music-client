@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import MoodCard from "../../component/Moods/MoodCard";
+import PlaylistCard from "../../component/card/PlaylistCard";
 
 export default function Dashboard() {
   const [userName, setUserName] = useState("");
@@ -79,19 +80,11 @@ export default function Dashboard() {
             <div className="greetings-container">
               <h1 className="username">Hello, {userName}</h1>
               <p className="greeting">{greeting}</p>
-              <div>
-                <Button onClick={handlePlaylist}>Get a new playlist</Button>
-              </div>
             </div>
             {/* </div> */}
           </div>
-          <div>
-            <h2>Your Mood Playlist</h2>
-            <Button className={"get-playlist-btn"} onClick={handlePlaylist}>
-              Get PlayList
-            </Button>
-          </div>
           <MoodCard />
+          <PlaylistCard />
         </div>
       </div>
     </>
