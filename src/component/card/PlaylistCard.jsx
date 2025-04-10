@@ -10,7 +10,8 @@ export default function PlaylistCard() {
   const getPlaylist = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/playlist/recommendedplaylist",
+        "https://mood2musicserver.onrender.com/playlist/recommendedplaylist",
+        // "http://localhost:3000/playlist/recommendedplaylist",
         {
           withCredentials: true,
         }
@@ -25,7 +26,8 @@ export default function PlaylistCard() {
   const fetchPlaylists = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/playlist/getplaylist",
+        "https://mood2musicserver.onrender.com/playlist/getplaylist",
+        // "http://localhost:3000/playlist/getplaylist",
         {
           withCredentials: true,
         }

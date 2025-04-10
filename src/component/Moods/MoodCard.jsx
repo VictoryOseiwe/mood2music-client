@@ -10,9 +10,13 @@ export default function MoodCard() {
 
   const fetchMoods = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/mood/getmood", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        // "http://localhost:3000/mood/getmood",
+        "https://mood2musicserver.onrender.com/mood/getmood",
+        {
+          withCredentials: true,
+        }
+      );
       setMoods(response.data.moods.slice(0, 10));
     } catch (error) {
       toast.error("Unable to get moods");
@@ -27,7 +31,8 @@ export default function MoodCard() {
       }
 
       const response = await axios.post(
-        "http://localhost:3000/mood/addmood",
+        // "http://localhost:3000/mood/addmood",
+        "https://mood2musicserver.onrender.com/mood/addmood",
         { mood },
         {
           withCredentials: true,
