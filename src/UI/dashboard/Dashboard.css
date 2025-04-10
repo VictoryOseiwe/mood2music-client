@@ -5,10 +5,11 @@
 }
 
 .dashboard-container {
-  width: 800px;
+  width: 100%;
   max-width: 800px;
   height: 100%;
   padding: 50px 0;
+  margin: 0 auto;
 }
 
 .top-container {
@@ -69,4 +70,17 @@
   background-color: var(--purple);
   color: var(--white);
   transition: all 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px 0;
+    width: 100%;
+  }
+  .top-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: baseline;
+  }
 }
