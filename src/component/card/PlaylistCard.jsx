@@ -62,23 +62,21 @@ export default function PlaylistCard() {
             </div>
           )}
         </div>
-        <div>
-          {playlists && (
-            <div>
-              <h4>{playlists.name}</h4>
-              <img src={playlists.image} alt="playlist image" />
-              <a href={playlists.url}>Play Now</a>
-              <p>{playlists.playlistMood}</p>
-            </div>
+        <div className="playlists-container">
+          {playlists?.length > 0 ? (
+            playlists.map((p, i) => (
+              <div key={i} className="playlist-container">
+                <h4 className="playlist-name">{p.name}</h4>
+                <img className="playlist-image" src={p.image} alt="playlist" />
+                <a className="playlist-button" href={p.url}>
+                  Play Now
+                </a>
+                <p>mood: {p.playlistMood}</p>
+              </div>
+            ))
+          ) : (
+            <p>No playlists found</p>
           )}
-          {/* //     {playlists?.map((p, i) => ( */}
-          {/* <div key={i}>
-            <h4>{p.name}</h4>
-             <img src={p.image} alt="playlist image" />
-             <a href={p.url}>Play Now</a>
-             <p>{p.playlistMood}</p>
-            </div> */}
-          {/* ))} */}
         </div>
       </div>
     </div>
