@@ -24,7 +24,8 @@ export default function Dashboard() {
     const fetchUserName = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/user/userName",
+          // "http://localhost:3000/user/userName",
+          "https://mood2musicserver.onrender.com/user/userName",
           {
             withCredentials: true,
           }

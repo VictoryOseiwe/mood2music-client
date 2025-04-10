@@ -37,7 +37,8 @@ export default function SignUp() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/user/register",
+        "https://mood2musicserver.onrender.com/user/register",
+        // "http://localhost:3000/user/register",
         formData,
         { withCredentials: true }
       );

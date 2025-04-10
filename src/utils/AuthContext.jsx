@@ -11,9 +11,12 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const verifyUser = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/user/me", {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          "https://mood2musicserver.onrender.com/user/me",
+          {
+            withCredentials: true,
+          }
+        );
         setUser(res.data.user);
       } catch (error) {
         setUser(null);
@@ -27,7 +30,7 @@ export const AuthProvider = ({ children }) => {
   const login = (userData) => setUser(userData);
   const logout = async () => {
     axios
-      .get("http://localhost:3000/user/me", {
+      .get("https://mood2musicserver.onrender.com/user/me", {
         withCredentials: true, // Ensure cookies are sent
       })
       .then((res) => console.log(res.data))
