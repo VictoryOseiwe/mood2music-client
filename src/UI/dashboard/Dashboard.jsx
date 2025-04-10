@@ -20,21 +20,6 @@ export default function Dashboard() {
     navigate("/");
   };
 
-  const handlePlaylist = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:3000/playlist/recommendedplaylist",
-        { withCredentials: true }
-      );
-
-      toast.success("Playlist generated successfully");
-      setPlaylist(response.data.playlist);
-    } catch (error) {
-      console.error("Error generating playlist");
-      toast.error(error?.response?.data?.error || "Cannot generate playlist");
-    }
-  };
-
   useEffect(() => {
     const fetchUserName = async () => {
       try {

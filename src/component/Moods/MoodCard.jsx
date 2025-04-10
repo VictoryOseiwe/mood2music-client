@@ -5,17 +5,21 @@ import toast from "react-hot-toast";
 import Input from "../input/Input";
 import Button from "../Button";
 export default function MoodCard() {
-  const [moods, setMoods] = useState();
+  const [moods, setMoods] = useState([]);
   const [mood, setMood] = useState("");
 
   const fetchMoods = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/mood/getmood", {
-        withCredentials: true,
-      });
-      setMoods(response.data.moods.slice(0, 10));
-    } catch (error) {
-      toast.error("Unable to get moods");
+    if (mood.length === 0) {
+      toast.success("No moods found for this user");
+    } else {
+      try {
+        const response = await axios.get("http://localhost:3000/mood/getmood", {
+          withCredentials: true,
+        });
+        setMoods(response.data.moods.slice(0, 10));
+      } catch (error) {
+        toast.error("Unable to get moods");
+      }
     }
   };
 

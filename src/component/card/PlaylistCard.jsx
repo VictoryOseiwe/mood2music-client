@@ -4,7 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Button from "../Button";
 export default function PlaylistCard() {
-  const [playlists, setPlaylists] = useState();
+  const [playlists, setPlaylists] = useState([]);
   const [playlist, setPlaylist] = useState();
 
   const getPlaylist = async () => {
