@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Typed from "typed.js";
 import { useEffect, useRef } from "react";
 import StepProgress from "../../component/StepProgress/StepProgress";
+import CookieBanner from "../../component/cookie";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -54,6 +55,7 @@ export default function Home() {
           </Button>
         </div>
       </section>
+      <CookieBanner />
       <section className="how-it-works-section">
         <div className="hit-first-div">
           <Button className={"hit-fd-btn"}>How it works</Button>

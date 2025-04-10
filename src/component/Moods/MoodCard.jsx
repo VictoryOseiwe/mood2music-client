@@ -9,17 +9,13 @@ export default function MoodCard() {
   const [mood, setMood] = useState("");
 
   const fetchMoods = async () => {
-    if (mood.length === 0) {
-      toast.success("No moods found for this user");
-    } else {
-      try {
-        const response = await axios.get("http://localhost:3000/mood/getmood", {
-          withCredentials: true,
-        });
-        setMoods(response.data.moods.slice(0, 10));
-      } catch (error) {
-        toast.error("Unable to get moods");
-      }
+    try {
+      const response = await axios.get("http://localhost:3000/mood/getmood", {
+        withCredentials: true,
+      });
+      setMoods(response.data.moods.slice(0, 10));
+    } catch (error) {
+      toast.error("Unable to get moods");
     }
   };
 
