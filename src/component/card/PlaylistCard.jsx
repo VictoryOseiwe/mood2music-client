@@ -15,11 +15,6 @@ export default function PlaylistCard() {
           withCredentials: true,
         }
       );
-      // const addedPlaylist = setPlaylist(response.data?.playlist);
-      // setPlaylists((prevPlaylists) => {
-      //   const updated = [addedPlaylist, ...prevPlaylists];
-      //   return updated.slice(0, 10);
-      // });
       setPlaylist(response.data.playlist);
       toast.success("Playlist generated successfully.");
     } catch (error) {
@@ -35,9 +30,11 @@ export default function PlaylistCard() {
           withCredentials: true,
         }
       );
-      setPlaylists(response.data.allPlaylists.slice(0, 10));
+      setPlaylists(response.data.allPlaylists);
       toast.success("Playlist fetched");
-    } catch (error) {}
+    } catch (error) {
+      toast.error("Couldn't fetch playlists from DB");
+    }
   };
 
   useEffect(() => {
@@ -51,22 +48,37 @@ export default function PlaylistCard() {
         <div>
           <Button onClick={getPlaylist}>Get Playlist</Button>
           {playlist && (
-            <div>
-              <h4>{playlist.name}</h4>
-              <img src={playlist.image} alt="playlist image" />
-              <a href={playlist.url}>Play Now</a>
+            <div className="playlist-container">
+              <img
+                className="playlist-image"
+                src={playlist.image}
+                alt="playlist image"
+              />
+              <h4 className="playlist-name">{playlist.name}</h4>
+
+              <a className={"playlist-button"} href={playlist.url}>
+                Play Now
+              </a>
             </div>
           )}
         </div>
         <div>
-          {playlists?.map((p, i) => (
-            <div key={i}>
-              <h4>{p.name}</h4>
-              <img src={p.image} alt="playlist image" />
-              <a href={p.url}>Play Now</a>
-              <p>{p.playlistMood}</p>
+          {playlists && (
+            <div>
+              <h4>{playlists.name}</h4>
+              <img src={playlists.image} alt="playlist image" />
+              <a href={playlists.url}>Play Now</a>
+              <p>{playlists.playlistMood}</p>
             </div>
-          ))}
+          )}
+          {/* //     {playlists?.map((p, i) => ( */}
+          {/* <div key={i}>
+            <h4>{p.name}</h4>
+             <img src={p.image} alt="playlist image" />
+             <a href={p.url}>Play Now</a>
+             <p>{p.playlistMood}</p>
+            </div> */}
+          {/* ))} */}
         </div>
       </div>
     </div>

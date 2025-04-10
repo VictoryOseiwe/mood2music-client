@@ -86,6 +86,7 @@ export default function Dashboard() {
           <MoodCard />
           <PlaylistCard />
         </div>
+        <p>courtesy @victory oseiwe</p>
       </div>
     </>
   );
