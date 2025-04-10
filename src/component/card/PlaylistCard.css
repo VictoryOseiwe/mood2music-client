@@ -41,3 +41,20 @@
   grid-template-columns: repeat(2, 1fr);
   width: 100%S;
 }
+
+@media (max-width: 768px) {
+  .playlist-container {
+    padding: 10px;
+  }
+  .playlist-button {
+    font-size: var(--small);
+  }
+  .playlist-name {
+    font-size: var(--small);
+  }
+  .playlists-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
