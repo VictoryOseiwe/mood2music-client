@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Button from "../Button";
+import "./cookie.css";
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
@@ -24,6 +26,9 @@ export default function CookieBanner() {
         our use of cookies.
       </p>
       <button onClick={acceptCookies}>Accept</button>
+      {/* <Button className={"cookie-btn"} onClick={acceptCookies}>
+        Accept
+      </Button> */}
     </div>
   );
 }
