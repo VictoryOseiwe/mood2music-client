@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./StepProgress.css";
 
+//This is the step in the home page that show what we do with users data
 const steps = [
   {
     id: 1,
