@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Typed from "typed.js";
 import { useEffect, useRef } from "react";
 import StepProgress from "../../component/StepProgress/StepProgress";
-import CookieBanner from "../../component/cookie";
+import CookieBanner from "../../component//cookie/cookie";
 
 export default function Home() {
   const navigate = useNavigate();
