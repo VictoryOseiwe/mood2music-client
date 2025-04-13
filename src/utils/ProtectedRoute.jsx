@@ -9,7 +9,6 @@ const ProtectedRoute = () => {
   if (loading)
     return (
       <div className="spin-container">
-        {" "}
         <Spinner />
       </div>
     ); // Prevents flickering
