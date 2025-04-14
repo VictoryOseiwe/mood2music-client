@@ -57,7 +57,7 @@ export default function CookieBanner() {
     console.log("All cookies accepted");
     // Implement logic to enable all cookies
   };
-
+// Will change SVGS to react icons 
   const declineAllCookies = () => {
     localStorage.setItem("cookieConsent", "declined");
     setShowBanner(false);
