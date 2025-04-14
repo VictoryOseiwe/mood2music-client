@@ -14,6 +14,7 @@ const bannerVariants = {
   exit: { y: "100%", opacity: 0, transition: { duration: 0.2 } },
 };
 
+//Will create a separate file for this preferencesVariants
 const preferencesVariants = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.2 } },
