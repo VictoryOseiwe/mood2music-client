@@ -7,6 +7,7 @@ const ProtectedRoute = () => {
   const { user, loading } = useAuth();
 
   if (loading)
+    // The css might not be needed though 
     return (
       <div className="spin-container">
         <Spinner />
